@@ -8,8 +8,20 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Poppins', sans-serif;
+  --font-display: 'Sora', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-primary: #4F46E5;         /* Indigo-600: Deep, rich but vibrant */
+  --color-accent: #F97316;          /* Orange-500: Bright and energetic for calls to action */
+  --color-muted: #6B7280;           /* Gray-500: Better text readability */
+  --color-border: #D1D5DB;          /* Gray-300: Softer but visible */
+  --color-success: #22C55E;         /* Green-500: Clean success indicator */
+  --color-danger: #DC2626;      
+  --color-highlight: #A855F7; /* Purple-500 for small decorative touches */
+  --color-info: #3B82F6; 
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +32,34 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+}
+
+/* globals.css */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
 }
